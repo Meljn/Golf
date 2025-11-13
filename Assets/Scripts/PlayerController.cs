@@ -1,30 +1,17 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+namespace Golf
 {
-    [SerializeField] private FreeCamera m_camera;
-    [SerializeField] private GameObject m_uiPanel;
-    [SerializeField] private CloudController m_cloudController;
-    [SerializeField] private SwapTools m_swapTools;
-    
-    void Start()
+    public class PlayerController : MonoBehaviour
     {
+        [SerializeField] private StoneSpawner m_stoneSpawner;
         
-    }
-    
-    void Update()
-    {
-        if (m_uiPanel.activeSelf) return;
-        m_camera.Move();
-
-        if (Input.GetKeyDown(KeyCode.Z))
+        private void Update()
         {
-            m_cloudController.MoveNext();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space)) 
-        {
-            m_swapTools.Swap();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                m_stoneSpawner.Spawn();
+            }
         }
     }
 }
