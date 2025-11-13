@@ -2632,8 +2632,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Golf.StoneSpawner
   m_prefabs:
-  - {fileID: 576805905221056649, guid: 5c7589dad5d98f7488368e2033688729, type: 3}
-  - {fileID: 2824539439074692447, guid: 81e0f4546fec98f4d98511ece8adc01f, type: 3}
+  - {fileID: 408785958315849767, guid: e3d87a4471ffeec488206f8ecd3e7c30, type: 3}
+  - {fileID: 8475195321465864222, guid: 3b7cd4ecb98b2f747ae82f8f2abfe076, type: 3}
   m_spawnPoint: {fileID: 332677957}
 --- !u!4 &332677957
 Transform:
@@ -2644,7 +2644,7 @@ Transform:
   m_GameObject: {fileID: 332677955}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 62.838, y: 22.598, z: 52.763}
+  m_LocalPosition: {x: 62.928, y: 23.225, z: 52.909}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4876,7 +4876,7 @@ GameObject:
   - component: {fileID: 618619850}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: club
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5996,7 +5996,7 @@ GameObject:
   - component: {fileID: 726942285}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: club
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6469,7 +6469,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 768421737}
-  - component: {fileID: 768421739}
   - component: {fileID: 768421738}
   m_Layer: 0
   m_Name: Stick
@@ -6509,21 +6508,6 @@ MonoBehaviour:
   m_minAngelZ: -30
   m_maxAngelZ: 30
   m_speed: 250
---- !u!114 &768421739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 768421736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68ce90709e465fe419210551d69cc08f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  m_minAngelZ: -30
-  m_maxAngelZ: 30
-  m_speed: 0
 --- !u!1001 &772281470
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14732,6 +14716,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 867978180}
     m_Modifications:
+    - target: {fileID: 1385124323689208, guid: e7489574cca6d4645a7019414b8288e8, type: 3}
+      propertyPath: m_TagString
+      value: ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4943765590059028, guid: e7489574cca6d4645a7019414b8288e8, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -16718,6 +16706,10 @@ PrefabInstance:
     - target: {fileID: 2728306578926890382, guid: 58cd754c3dde1f944a2d86bd93a982bb, type: 3}
       propertyPath: m_Name
       value: VillagerPlow
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728306578926890382, guid: 58cd754c3dde1f944a2d86bd93a982bb, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
