@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c52e94ed-96e5-405b-b408-35a9bc36bba5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Golf/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Golf/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Stick.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Stick.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StoneComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StoneComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StoneSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StoneSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RPGPP_LT/Scenes/Test_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RPGPP_LT/Scenes/Test_1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +108,7 @@
       <option name="presentableId" value="Default" />
       <updated>1762864985180</updated>
       <workItem from="1762864987091" duration="5874000" />
-      <workItem from="1763127915911" duration="4567000" />
+      <workItem from="1763127915911" duration="4966000" />
     </task>
     <servers />
   </component>
