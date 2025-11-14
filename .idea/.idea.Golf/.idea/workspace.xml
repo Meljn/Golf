@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c52e94ed-96e5-405b-b408-35a9bc36bba5" name="Changes" comment="" />
+    <list default="true" id="c52e94ed-96e5-405b-b408-35a9bc36bba5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Golf/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Golf/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Stick.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Stick.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StoneComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StoneComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StoneSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StoneSpawner.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,9 +24,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Stick.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="35Ki62c8IWox1MevtlotOEIll8x" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -31,7 +37,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "Golf",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -104,7 +110,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1762864985180</updated>
-      <workItem from="1762864987091" duration="5274000" />
+      <workItem from="1762864987091" duration="5874000" />
+      <workItem from="1763127915911" duration="4567000" />
     </task>
     <servers />
   </component>

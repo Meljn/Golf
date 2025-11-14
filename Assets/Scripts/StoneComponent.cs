@@ -5,17 +5,22 @@ namespace Golf
 {
     public class StoneComponent : MonoBehaviour
     {
+        public event Action<StoneComponent> Hit;
+        public event Action<StoneComponent> Missed;
+        
+         
+        
         private void OnCollisionEnter(Collision collision)
         {
 
-            if (collision.gameObject.CompareTag("club"))
+            if (collision.gameObject.GetComponent<Stick>())
             {
-                print("stone was collide with CLUB");
+                Hit?.Invoke(this);
             }
 
             else
             {
-                print("stone was collide with GROUND");
+                Missed?.Invoke(this);
             }
 
         }
