@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 namespace Golf
@@ -8,9 +9,11 @@ namespace Golf
         [SerializeField] private int m_missedCount;
         [SerializeField] [Min(0)] private float m_spawnRate = 0.5f;
         [SerializeField] private StoneSpawner m_stoneSpawner;
+        [SerializeField] private TMP_Text m_scoreText;
 
         private float m_time;
         private int m_currentMissedCount;
+        private int score;
 
         private void Awake()
         {
@@ -20,6 +23,7 @@ namespace Golf
         private void Start()
         {
             m_time = m_spawnRate;
+            score = 0;
         }
 
         private void Update()
@@ -42,8 +46,8 @@ namespace Golf
         {
             stoneComponent.Hit -= OnHitStone;
             stoneComponent.Missed -= OnMissed;
-            
-            Debug.Log("Score");
+            score++;
+            m_scoreText.text = "Score: " + score;
         }
         
         private void OnMissed(StoneComponent stoneComponent)
