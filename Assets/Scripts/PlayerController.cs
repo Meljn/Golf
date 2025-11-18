@@ -4,13 +4,17 @@ namespace Golf
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] private StoneSpawner m_stoneSpawner;
+        [SerializeField] private Stick m_stick;
         
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKey(KeyCode.RightArrow))
             {
-                m_stoneSpawner.Spawn();
+                m_stick.Down();
+            }
+            else
+            {
+                m_stick.Up();
             }
         }
     }

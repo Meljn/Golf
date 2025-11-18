@@ -6,14 +6,15 @@ namespace Golf
 {
     public class LevelController : MonoBehaviour
     {
+        public event Action Finished;
+        
         [SerializeField] private int m_missedCount;
         [SerializeField] [Min(0)] private float m_spawnRate = 0.5f;
         [SerializeField] private StoneSpawner m_stoneSpawner;
-        [SerializeField] private TMP_Text m_scoreText;
+        [SerializeField] private ScoreManager m_scoreManager;
 
         private float m_time;
         private int m_currentMissedCount;
-        private int score;
 
         private void Awake()
         {
@@ -23,7 +24,6 @@ namespace Golf
         private void Start()
         {
             m_time = m_spawnRate;
-            score = 0;
         }
 
         private void Update()
@@ -44,24 +44,28 @@ namespace Golf
 
         private void OnHitStone(StoneComponent stoneComponent)
         {
-            stoneComponent.Hit -= OnHitStone;
-            stoneComponent.Missed -= OnMissed;
-            score++;
-            m_scoreText.text = "Score: " + score;
+            Unsubscribe(stoneComponent);
+            m_scoreManager.Increase();
         }
         
         private void OnMissed(StoneComponent stoneComponent)
         {
-            stoneComponent.Hit -= OnHitStone;
-            stoneComponent.Missed -= OnMissed;
-            
+            Unsubscribe(stoneComponent);
+
             m_currentMissedCount--;
             if (m_currentMissedCount <= 0)
             {
                 Debug.Log("Game Over");
+                Finished?.Invoke();
             }
             
             
+        }
+
+        private void Unsubscribe(StoneComponent stoneComponent)
+        {
+            stoneComponent.Hit -= OnHitStone;
+            stoneComponent.Missed -= OnMissed;
         }
     }
 }
