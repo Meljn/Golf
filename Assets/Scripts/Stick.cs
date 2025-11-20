@@ -9,7 +9,6 @@ namespace Golf
         [SerializeField] private float m_minAngleZ = -30;
         [SerializeField] private float m_maxAngleZ = 30;
         [SerializeField][Min(0)] private float m_speed;
-        [SerializeField] private GameObject m_particle;
 
         private Vector3 m_direction;
         private Vector3 m_lastPointPosition;
@@ -45,7 +44,6 @@ namespace Golf
             if (collision.gameObject.TryGetComponent<StoneComponent>(out var stone))
             {
                 stone.AddForce(m_power * m_direction);
-                Instantiate(m_particle, stone.transform.position, stone.transform.rotation);
             }
         }
 
