@@ -7,6 +7,7 @@ namespace Golf
     {
         [SerializeField] private GameObject m_mainMenuRoot;
         [SerializeField] private Button m_playButton;
+
         private GameStateMechine m_gameStateMechine;
 
         public void Initialize(GameStateMechine gameStateMachine)

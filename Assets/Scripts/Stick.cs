@@ -5,7 +5,7 @@ namespace Golf
 {
     public class Stick : MonoBehaviour
     {
-        [SerializeField] [Min(0)] private float m_power = 250f;
+        [SerializeField] [Min(0)] private float m_power = 250;
         [SerializeField] private Transform m_point;
         [SerializeField] private float m_minAngelZ = -30;
         [SerializeField] private float m_maxAngelZ = 30;
@@ -14,6 +14,7 @@ namespace Golf
         private bool m_isDown;
         private Vector3 m_direction;
         private Vector3 m_lastPointPosition;
+
         private void FixedUpdate()
         {
             var angels = transform.localEulerAngles;
@@ -26,14 +27,11 @@ namespace Golf
             {
                 angels.z = Rotate(angels.z, m_maxAngelZ);
             }
-            
-            m_lastPointPosition = transform.position;
-            m_direction = (m_point.position - m_lastPointPosition).normalized;
-            transform.localEulerAngles = angels;
-        }
 
-        public void Down() => m_isDown = true;
-        public void Up() => m_isDown = false;
+            transform.localEulerAngles = angels;
+            m_direction = (m_point.position - m_lastPointPosition).normalized;
+            m_lastPointPosition = transform.position;         
+        }
         
         private float Rotate(float angleZ, float target)
         {
@@ -41,16 +39,16 @@ namespace Golf
         }
         
         private void OnCollisionEnter(Collision collision)
-        {
-
-            
-            var direction = (m_point.position - m_lastPointPosition).normalized;
+        {  
             if (collision.gameObject.TryGetComponent<StoneComponent>(out var stoneComponent))
             {
-                stoneComponent.AddForce(m_power * direction);
+                stoneComponent.AddForce(m_power * m_direction);
             }
             
 
         }
+
+        public void Down() => m_isDown = true;
+        public void Up() => m_isDown = false;
     }
 }

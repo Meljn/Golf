@@ -8,6 +8,7 @@ namespace Golf
     {
         public event Action<StoneComponent> Hit;
         public event Action<StoneComponent> Missed;
+
         private Rigidbody m_rigidbody;
 
         private void Awake()

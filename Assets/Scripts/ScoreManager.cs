@@ -6,6 +6,7 @@ namespace Golf
     public class ScoreManager:MonoBehaviour
     {
         public event Action<int> ScoreChanged;
+
         private int m_score;
 
         public int score

@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -10,8 +11,9 @@ namespace Golf
         [SerializeField] private TextMeshProUGUI m_scoreText;
         [SerializeField] private ScoreManager m_scoreManager;
         [SerializeField] private LevelController m_levelController;
-        private GameStateMechine m_gameStateMechine;
         [SerializeField] private PlayerController m_playerController;
+
+        private GameStateMechine m_gameStateMechine;
         
         public void Initialize(GameStateMechine gameStateMechine)
         {
@@ -23,19 +25,32 @@ namespace Golf
         {
             m_scoreManager.Reset();
             m_scoreManager.ScoreChanged += OnScoreChanged;
-            m_levelController.enabled = true;
-            m_playerController.enabled = true;
+
+            m_scoreText.gameObject.SetActive(true);
             m_scoreText.text = m_scoreManager.score.ToString();
 
+            m_levelController.enabled = true;
+            m_playerController.enabled = true;
+
             m_levelController.Finished += OnFinished;
+        }
+
+        private void OnFinished()
+        {
+            m_gameStateMechine.Enter<GameOverState>();
         }
 
         public void Exit()
         {
             m_levelController.enabled = false;
             m_playerController.enabled = false;
+
+            m_levelController.Finished -= OnFinished;
         }
         
-        private void OnScoreChanged(int score) => m_scoreText.text = $"Score: {score}";
+        private void OnScoreChanged(int score)
+        {
+            m_scoreText.text = score.ToString();
+        }
     }
 }
