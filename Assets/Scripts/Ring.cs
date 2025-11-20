@@ -10,7 +10,6 @@ namespace Golf
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log($"Trigger entered with: {other.gameObject.name}");
             if (other.gameObject.TryGetComponent<StoneComponent>(out var stone))
             {
                 ApplyMultiplier();
@@ -23,7 +22,6 @@ namespace Golf
             {
                 m_scoreManager.Increase();
             }
-            Debug.Log($"Multiplier x{m_scoreMultiplier} applied! Total score: {m_scoreManager.score}");
         }
     }
 }
