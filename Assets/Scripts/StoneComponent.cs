@@ -1,5 +1,7 @@
 using System;
+using Golf.Data;
 using UnityEngine;
+using Random = System.Random;
 
 namespace Golf
 {
@@ -9,11 +11,14 @@ namespace Golf
         public event Action<StoneComponent> Hit;
         public event Action<StoneComponent> Missed;
 
+        [SerializeField] private StoneData[] m_data;
         private Rigidbody m_rigidbody;
+        private StoneData m_currentData;
 
         private void Awake()
         {
             m_rigidbody = GetComponent<Rigidbody>();
+            m_currentData = m_data[Random.Range(0, m_data.Length)];
         }
         private void OnCollisionEnter(Collision collision)
         {

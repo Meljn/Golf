@@ -2,25 +2,25 @@ using UnityEngine;
 
 namespace Golf
 {
-    public class BoostrapState:MonoBehaviour
+    public class BoostrapState: StateBase
     {
         [SerializeField] private LevelController m_levelController;
         [SerializeField] private PlayerController m_playerController;
         private GameStateMechine m_gameStateMechine;
 
-        public void Initialize(GameStateMechine gameStateMechine)
+        public override void Initialize(GameStateMechine gameStateMechine)
         {
             m_levelController.enabled = false;
             m_playerController.enabled = false;
             m_gameStateMechine = gameStateMechine;
         }
 
-        public void Enter()
+        public override void Enter()
         {
             m_gameStateMechine.Enter<MainMenuState>();
         }
 
-        public void Exit()
+        public override void Exit()
         {
             
         }

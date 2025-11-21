@@ -6,8 +6,10 @@ using UnityEngine.SocialPlatforms.Impl;
 
 namespace Golf
 {
-    public class GameplayState:MonoBehaviour
+    public class GameplayState:StateBase
     {
+
+        [SerializeField] private GameObject m_gameplayPanel;
         [SerializeField] private TextMeshProUGUI m_scoreText;
         [SerializeField] private ScoreManager m_scoreManager;
         [SerializeField] private LevelController m_levelController;
@@ -15,18 +17,18 @@ namespace Golf
 
         private GameStateMechine m_gameStateMechine;
         
-        public void Initialize(GameStateMechine gameStateMechine)
+        public override void Initialize(GameStateMechine gameStateMechine)
         {
-            m_scoreText.gameObject.SetActive(false);
+            m_gameplayPanel.SetActive(false);
             m_gameStateMechine = gameStateMechine;
         }
 
-        public void Enter()
+        public override void Enter()
         {
             m_scoreManager.Reset();
             m_scoreManager.ScoreChanged += OnScoreChanged;
 
-            m_scoreText.gameObject.SetActive(true);
+            m_gameplayPanel.SetActive(true);
             m_scoreText.text = m_scoreManager.score.ToString();
 
             m_levelController.enabled = true;
@@ -40,10 +42,11 @@ namespace Golf
             m_gameStateMechine.Enter<GameOverState>();
         }
 
-        public void Exit()
+        public override void Exit()
         {
             m_levelController.enabled = false;
             m_playerController.enabled = false;
+            m_gameplayPanel.SetActive(false);
 
             m_levelController.Finished -= OnFinished;
         }

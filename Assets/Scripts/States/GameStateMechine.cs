@@ -4,18 +4,16 @@ namespace Golf
 {
     public class GameStateMechine:MonoBehaviour
     {
-        [SerializeField] private MainMenuState m_mainMenuState;
-        [SerializeField] private GameplayState m_gameplayState;
-        [SerializeField] private BoostrapState m_boostrapState;
-        [SerializeField] private GameOverState m_gameoverState;
-
+        [SerializeField] private StateBase[] m_states;
+        
+        private StateBase m_currentState;
 
         private void Awake()
         {
-            m_mainMenuState.Initialize(this);
-            m_gameplayState.Initialize(this);
-            m_boostrapState.Initialize(this);
-            m_gameoverState.Initialize(this);
+            foreach (StateBase state in m_states)
+            {
+                state.Initialize(this);
+            }
         }
 
         private void Start()
@@ -24,31 +22,20 @@ namespace Golf
         }
         public void Enter<T>()
         {
-            if (typeof(T) == typeof(BoostrapState))
-            {
-                m_boostrapState.Enter();
-            }
-            
-            else if (typeof(T) == typeof(MainMenuState))
-            {
-                m_gameplayState.Exit();
-                m_mainMenuState.Enter();
-                m_gameoverState.Exit();             
-            }
-            
-            else if (typeof(T) == typeof(GameplayState))
-            {
-                m_boostrapState.Exit();
-                m_mainMenuState.Exit();
-                m_gameoverState.Exit();
-                m_gameplayState.Enter();
-            }
+            m_currentState?.Exit();
 
-            else if (typeof(T) == typeof(GameOverState))
+            foreach (StateBase state in m_states)
             {
-                m_gameplayState.Exit();
-                m_gameoverState.Enter();
+                if (state.GetType() == typeof(T))
+                {
+                    m_currentState = state;
+                    state.Enter();
+
+                    break;
+                }
             }
+            
+            
 
         }
     }
