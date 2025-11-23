@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Windows;
 
 namespace Golf
 {
@@ -10,9 +11,15 @@ namespace Golf
         [SerializeField] private float m_maxAngleZ = 30;
         [SerializeField][Min(0)] private float m_speed;
 
+        [SerializeField] private GameObject m_rotationPoint;
+        [SerializeField] private float m_rotationSpeed = 10;
+
+
         private Vector3 m_direction;
         private Vector3 m_lastPointPosition;
         private bool m_isDown;
+
+
         private void FixedUpdate()
         {
             var angles = transform.localEulerAngles;
@@ -32,6 +39,18 @@ namespace Golf
         }
         public void Down() => m_isDown = true;
         public void Up() => m_isDown = false;
+
+        public void TurnAround(float rotation)
+        {
+            float currentY = m_rotationPoint.transform.localEulerAngles.y;
+            currentY = (currentY > 180) ? currentY -= 360 : currentY;
+
+            float newY = currentY + rotation * m_rotationSpeed * Time.deltaTime;
+            newY = Mathf.Clamp(newY, -45f, 45f);
+
+            m_rotationPoint.transform.localEulerAngles = new Vector3(0, newY, 0);
+              
+        }
 
         private float Rotate(float angleZ, float target)
         {

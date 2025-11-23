@@ -6,7 +6,11 @@ namespace Golf.Data
     public class StoneData : ScriptableObject
     {
         [SerializeField] private int m_score;
-        
+        [SerializeField] GameObject m_particle;
+
         public int score => m_score;
+
+        public GameObject particle => m_particle;
+
     }
 }

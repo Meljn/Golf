@@ -14,6 +14,7 @@ namespace Golf
         [SerializeField] [Min(0.1f)] private float m_spawnRate = 0.5f;
         [SerializeField] private StoneSpawner m_stoneSpawner;
         [SerializeField] private ScoreManager m_scoreManager;
+        [SerializeField] private GameObject m_missedParticle;
       
         private float m_time;
         private List<StoneComponent> m_stones;
@@ -53,6 +54,7 @@ namespace Golf
         {
             Unsubscribe(stoneComponent);
 
+            Instantiate(m_missedParticle, stoneComponent.transform.position, Quaternion.identity);
             m_currentMissedCount--;
             if (m_currentMissedCount <= 0)
             {

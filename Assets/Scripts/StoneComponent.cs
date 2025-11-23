@@ -25,8 +25,14 @@ namespace Golf
         private void OnCollisionEnter(Collision collision)
         {
 
+
             if (collision.gameObject.GetComponent<Stick>())
             {
+                if (m_data[Random.Range(0, m_data.Length)].particle != null)
+                {
+                    Instantiate(m_data[Random.Range(0, m_data.Length)].particle, transform.position, transform.rotation);
+                }
+
                 Hit?.Invoke(this);
             }
 

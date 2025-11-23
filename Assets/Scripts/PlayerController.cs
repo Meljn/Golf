@@ -8,8 +8,8 @@ namespace Golf
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private Stick m_stick;
-
         [SerializeField] private EventTrigger m_button;
+        [SerializeField] private VariableJoystick variableJoystick;
 
         private bool m_isDown;
 
@@ -41,6 +41,13 @@ namespace Golf
             else
             {
                 m_stick.Up();
+            }
+
+            if (variableJoystick.Horizontal != 0)
+            {
+                float rotation = variableJoystick.Horizontal;
+                Debug.Log(rotation);
+                m_stick.TurnAround(rotation);
             }
         }
 
