@@ -23854,7 +23854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clearBehavior: 2
   cameraShake:
-    enabled: 0
+    enabled: 1
     useMainCamera: 1
     cameras: []
     delay: 0.8
@@ -23865,10 +23865,10 @@ MonoBehaviour:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: -1
-        outSlope: -1
+        time: 0.0083351135
+        value: 0.17635727
+        inSlope: -0.17783958
+        outSlope: -0.17783958
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
@@ -23876,8 +23876,8 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 1
         value: 0
-        inSlope: -1
-        outSlope: -1
+        inSlope: -0.17783958
+        outSlope: -0.17783958
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
