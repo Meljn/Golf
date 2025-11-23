@@ -154,6 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb14f1aa0b17e040b8218ccc2cb0311, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Golf.StoneComponent
+  m_data:
+  - {fileID: 11400000, guid: 118dc58c89e2c004eb9eb0491815abe1, type: 2}
 --- !u!96 &7126153168403066161
 TrailRenderer:
   serializedVersion: 3

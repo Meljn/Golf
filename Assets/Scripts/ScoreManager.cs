@@ -12,11 +12,14 @@ namespace Golf
 
         public int record
         {
-            get => PlayerPrefs.GetInt(GlobalConstants.Record, 0);
+            get
+            {
+                PlayerPrefs.DeleteKey(GlobalConstants.Record);
+                return PlayerPrefs.GetInt(GlobalConstants.Record, 100);
+            }
             private set
             {
-                var temp = PlayerPrefs.GetInt(GlobalConstants.Record, 0);
-                if (temp < value)
+                if (record < value)
                 {
                     PlayerPrefs.SetInt(GlobalConstants.Record, value);
                     RecordChanged?.Invoke(value);
@@ -34,9 +37,9 @@ namespace Golf
             }
         }
         
-        public void Increase()
+        public void Increase(int value)
         {
-            score++;
+            score += value;
         }
 
         public void Reset()
@@ -46,11 +49,7 @@ namespace Golf
 
         public void UpdateRecord()
         {
-            var record = PlayerPrefs.GetInt(GlobalConstants.Record, 0);
-            if (record < score)
-            {
-                PlayerPrefs.SetInt(GlobalConstants.Record, score);
-            }
+            record = score;
         }
     }
 }

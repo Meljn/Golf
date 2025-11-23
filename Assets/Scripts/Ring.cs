@@ -18,10 +18,7 @@ namespace Golf
 
         private void ApplyMultiplier()
         {
-            for (int i = 0; i < m_scoreMultiplier; i++)
-            {
-                m_scoreManager.Increase();
-            }
+            m_scoreManager.Increase(m_scoreMultiplier);
         }
     }
 }

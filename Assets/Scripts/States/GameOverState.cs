@@ -25,11 +25,7 @@ namespace Golf
         {
             m_scoreText.text = m_scoreManager.score.ToString();
 
-            var record = PlayerPrefs.GetInt(GlobalConstants.Record, 0);
-            if (record < m_scoreManager.score)
-            {
-                PlayerPrefs.SetInt(GlobalConstants.Record, m_scoreManager.score);
-            }
+            m_scoreManager.UpdateRecord();
             
             m_backMainMenu.onClick.AddListener(OnClicked);
             m_gameOverPanel.gameObject.SetActive(true);
