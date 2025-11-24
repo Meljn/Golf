@@ -10,7 +10,7 @@ namespace Golf
         [SerializeField] private Ring m_ringPrefab;
         [SerializeField] private Transform[] m_spawnPoints;
         [SerializeField] private ScoreManager m_scoreManager;
-
+        [SerializeField] private GameObject m_particleHit;
         private Ring m_ring;
 
         private void Start ()
@@ -22,7 +22,6 @@ namespace Golf
         {
             if (m_ring == null)
             {
-                Debug.Log("Создаём новое кольцо!");
                 m_ring = Instantiate(m_ringPrefab);
 
                 m_ring.SetScoreManager(m_scoreManager);
@@ -33,12 +32,15 @@ namespace Golf
             Transform spawnPoint = m_spawnPoints[Random.Range(0, m_spawnPoints.Length)];
             m_ring.transform.position = spawnPoint.position;
             m_ring.gameObject.SetActive(true);
-            Debug.Log($"Кольцо активировано в позиции: {m_ring.transform.position}");
+
         }
 
         private void OnRingHit(Ring ring)
         {
             m_ring.gameObject.SetActive(false);
+
+            Instantiate(m_particleHit, m_ring.transform.position, m_ring.transform.rotation);
+
             SpawnRing();
         }
 

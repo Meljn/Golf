@@ -8,6 +8,9 @@ namespace Golf
         [SerializeField] private float m_lifetime = 20f;
         [SerializeField] private float m_speed = 1f;
         [SerializeField] private Vector3 m_randomOffset = new Vector3(0.5f, 0.5f, 0f);
+        [SerializeField] private float m_fontSize = 16f;
+        [SerializeField] private Color m_textColor = Color.orange;
+        [SerializeField] private FontWeight m_fontWeight = FontWeight.Bold;
 
         private TextMeshPro m_text;
         private float m_timer;
@@ -24,9 +27,9 @@ namespace Golf
         public void Initialize(string text)
         {
             m_text.text = text;
-            m_text.fontWeight = FontWeight.Bold;
-            m_text.fontSize = 16f;
-            m_text.color = Color.orange;
+            m_text.fontWeight = m_fontWeight;
+            m_text.fontSize = m_fontSize;
+            m_text.color = m_textColor;
             m_text.horizontalAlignment = HorizontalAlignmentOptions.Center;
             m_text.verticalAlignment = VerticalAlignmentOptions.Middle;
 

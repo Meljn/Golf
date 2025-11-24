@@ -8,7 +8,6 @@ namespace Golf
         public Action<Ring> Hit;
 
         [SerializeField][Min(1)] private int m_scoreMultiplier = 2;
-        [SerializeField] private GameObject m_particleHit;
 
         [SerializeField] private FloatingText m_floatingTextPrefab;
 
@@ -22,8 +21,6 @@ namespace Golf
             if (other.gameObject.TryGetComponent<StoneComponent>(out var stone))
             {
                 ApplyMultiplier();
-
-                Instantiate(m_particleHit, transform.position, transform.rotation);
 
                 if (m_floatingTextPrefab != null)
                 {
